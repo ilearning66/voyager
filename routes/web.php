@@ -15,6 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/new',      'NewsController@all');
+Route::get('/new/{id}', 'NewsController@show' );
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
+
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
